@@ -1,4 +1,3 @@
-from tela_inicio import lista_de_dificuldade
 from cores import vermelho
 from random import choice
  # verifica se o número está no nível de dificuldade ou não se encaixa, ex: (str)
@@ -14,7 +13,7 @@ def verify(escolhas):
         
         
 def dificuldade(usuario, lista):
-    while True:
+    '''while True:
         try:
             base = 0
             if usuario == 1:
@@ -43,7 +42,15 @@ def dificuldade(usuario, lista):
                     lista.append(base)
                 return(lista)
         except ValueError:
-            print('Um número por gentileza!')
+            print('Um número por gentileza!')'''
+    try:
+        tamanhos = {1: 50, 2: 100, 3: 150, 4: 200}
+        limite = tamanhos.get(usuario, usuario)
+        listad.extend(range(1, limite+1))
+        return listad
+    except ValueError:
+        print('Um número por gentileza!')
+    return lista
 
 def escolher_Numero(numero):
     choic = choice(numero)
@@ -65,23 +72,22 @@ def personalizado(pers):
         except:
             print('Valor Inválido')
 
-
+listad = []
 personalizado_ou_pronto = int(input('Você quer um número personalizado ou pronto? \n1-Pronto \n2-Personalizado:'))
 try:
     if personalizado_ou_pronto == 1:
         opcoes = [1, 2, 3, 4]
-        listad = []
         user = verify(opcoes)
         dificuldade(user, listad)
     elif personalizado_ou_pronto == 2:
         numero_user = []
         personalizado_usuario = personalizado(numero_user)
-        listad = []
         dificuldade(personalizado_usuario, listad)
     else:
         print('Inválido')
 except:
     print('Inválido')
+
 
 intervalo = len(listad)
 numero_escolhido = escolher_Numero(listad)
