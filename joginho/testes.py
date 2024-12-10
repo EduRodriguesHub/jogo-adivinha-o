@@ -1,4 +1,1 @@
-from dificuldades import listad, numero_escolhido
-
-print(listad)
-print(numero_escolhido)
+personalizado_ou_pronto = int(input('Você quer um número personalizado ou pronto? \n1-Pronto \n2-Personalizado:'))
