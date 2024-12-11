@@ -8,7 +8,7 @@ titulo
 sleep(0.5)
 subtitulo
 sleep(0.5)
-lista_de_dificuldade
+lista_de_dificuldade()
 contador = 1
 maquina_lista_escolha = listad.copy()
 intervalo = len(listad)

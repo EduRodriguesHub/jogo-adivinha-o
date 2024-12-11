@@ -1,9 +1,12 @@
 from cores import vermelho
 from random import choice
+from tela_inicio import lista_de_dificuldade
+from time import sleep
  # verifica se o número está no nível de dificuldade ou não se encaixa, ex: (str)
 def verify(escolhas):
         while True:
             try:
+                print('\n', lista_de_dificuldade())
                 user = int(input('Escolha: '))
                 if user in escolhas:
                         return user
@@ -13,36 +16,6 @@ def verify(escolhas):
         
         
 def dificuldade(usuario, lista):
-    '''while True:
-        try:
-            base = 0
-            if usuario == 1:
-                while len(lista) < 50:
-                    base = base + 1
-                    lista.append(base)
-                return lista
-            elif usuario == 2:
-                while len(lista) < 100:
-                    base += 1
-                    lista.append(base)
-                return lista
-            elif usuario == 3:
-                while len(lista) < 150:
-                    base += 1
-                    lista.append(base)
-                return lista
-            elif usuario == 4:
-                while len(lista) < 200:
-                    base += 1
-                    lista.append(base)
-                return lista
-            elif usuario not in [1, 2, 3, 4]:
-                while len(lista) < usuario:
-                    base += 1
-                    lista.append(base)
-                return(lista)
-        except ValueError:
-            print('Um número por gentileza!')'''
     try:
         tamanhos = {1: 50, 2: 100, 3: 150, 4: 200}
         limite = tamanhos.get(usuario, usuario)
@@ -73,7 +46,21 @@ def personalizado(pers):
             print('Valor Inválido')
 
 listad = []
-personalizado_ou_pronto = int(input('Você quer um número personalizado ou pronto? \n1-Pronto \n2-Personalizado:'))
+while True:
+    try:
+        personalizado_ou_pronto = int(input('Você quer um número personalizado ou pronto? \n1-Pronto \n2-Personalizado:'))
+        if personalizado_ou_pronto in [1, 2]:
+            break
+        else:
+            print('Um numero válido por gentileza!')
+            sleep(0.5)
+    except ValueError:
+        print('Um numero válido por gentileza!')
+        sleep(0.5)
+    except TypeError:
+        print('Um número válido por gentileza!')
+        sleep(0.5)
+
 try:
     if personalizado_ou_pronto == 1:
         opcoes = [1, 2, 3, 4]
