@@ -1,7 +1,7 @@
 from tela_inicio import titulo, subtitulo, lista_de_dificuldade
 from cores import azul_claro, amarelo
 from dificuldades import listad, numero_escolhido, escolha
-from versus_maquina import tentativa_pc, apagarNumeros
+from versus_maquina import apagarNumeros
 from time import sleep
 from random import choice
 titulo
@@ -13,7 +13,7 @@ contador = 1
 maquina_lista_escolha = listad.copy()
 intervalo = len(listad)
 tentativa = escolha('')
-computador_tentativa = ''
+computador_tentativa = 0
 while True:
     # Checa se o jogador acertou
     if tentativa == numero_escolhido:
@@ -25,13 +25,16 @@ while True:
     if tentativa < numero_escolhido:
         sleep(0.5)
         print("Jogador chutou baixo!")
+        maquina_lista_escolha = apagarNumeros(tentativa, numero_escolhido, maquina_lista_escolha)
+        print(maquina_lista_escolha)
     else:
         sleep(0.5)
         print("Jogador chutou alto!")
+        maquina_lista_escolha = apagarNumeros(tentativa, numero_escolhido, maquina_lista_escolha)
+        print(maquina_lista_escolha)
 
-    # Jogada do computador
-    if computador_tentativa == '':
-        computador_tentativa = choice(listad)
+    # Jogada do computadors
+    computador_tentativa = choice(maquina_lista_escolha)
     sleep(0.5)
     print(f"{amarelo}COMPUTADOR\033[m: eu escolhi {computador_tentativa}")
 
@@ -45,12 +48,13 @@ while True:
     if computador_tentativa < numero_escolhido:
         sleep(0.5)
         print("Computador chutou baixo!")
+        maquina_lista_escolha = apagarNumeros(computador_tentativa, numero_escolhido, maquina_lista_escolha)
+        print(maquina_lista_escolha)
     else:
         sleep(0.5)
         print("Computador chutou alto!")
+        maquina_lista_escolha = apagarNumeros(computador_tentativa, numero_escolhido, maquina_lista_escolha)
+        print(maquina_lista_escolha)
     sleep(0.5)
-    maquina_lista_escolha = apagarNumeros(computador_tentativa, numero_escolhido, maquina_lista_escolha)
-    print(maquina_lista_escolha)
     tentativa = escolha(tentativa)
-    computador_tentativa = tentativa_pc(maquina_lista_escolha)
     contador += 1

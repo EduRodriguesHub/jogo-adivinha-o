@@ -9,21 +9,17 @@ from dificuldades import listad, numero_escolhido
 from random import choice
 
 
-
-def tentativa_pc(maquina):
-    maquina = choice(maquina)
-    return maquina
-
 def apagarNumeros(maquina_Tentativa, numero_escolhido, lista):
+    novaLista = []
     if maquina_Tentativa > numero_escolhido:
-        lista = [n for n in lista if n < maquina_Tentativa]
+        for n in lista:
+            if n < maquina_Tentativa:
+                novaLista.append(n)
+        return novaLista
     elif maquina_Tentativa < numero_escolhido:
-        lista = [n for n in lista if n > maquina_Tentativa]
-    return lista
-
-
-contador = 0
+        for n in lista:
+            if n > maquina_Tentativa:
+                novaLista.append(n)
+        return novaLista
 
 maquina_lista_escolha = listad.copy()
-
-
