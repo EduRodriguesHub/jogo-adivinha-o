@@ -26,12 +26,10 @@ while True:
         sleep(0.5)
         print("Jogador chutou baixo!")
         maquina_lista_escolha = apagarNumeros(tentativa, numero_escolhido, maquina_lista_escolha)
-        print(maquina_lista_escolha)
     else:
         sleep(0.5)
         print("Jogador chutou alto!")
         maquina_lista_escolha = apagarNumeros(tentativa, numero_escolhido, maquina_lista_escolha)
-        print(maquina_lista_escolha)
 
     # Jogada do computadors
     computador_tentativa = choice(maquina_lista_escolha)
@@ -49,12 +47,11 @@ while True:
         sleep(0.5)
         print("Computador chutou baixo!")
         maquina_lista_escolha = apagarNumeros(computador_tentativa, numero_escolhido, maquina_lista_escolha)
-        print(maquina_lista_escolha)
     else:
         sleep(0.5)
         print("Computador chutou alto!")
         maquina_lista_escolha = apagarNumeros(computador_tentativa, numero_escolhido, maquina_lista_escolha)
-        print(maquina_lista_escolha)
     sleep(0.5)
     tentativa = escolha(tentativa)
     contador += 1
+    
