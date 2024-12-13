@@ -33,10 +33,10 @@ def escolha(opc):
     while True:
         try:
             opc = int(input(f"Escolha um número de 1 a {intervalo}: "))
-            if opc <= intervalo:
-                return opc
-            elif opc < 1:
+            if opc < 1 and opc <= intervalo:
                 print('Número não está na lista, tente novamente!')
+            elif opc <= intervalo:
+                return opc
             else:
                 print('Número não está na lista, tente novamente!')
         except:
